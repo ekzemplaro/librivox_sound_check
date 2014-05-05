@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta http-equiv="CONTENT-TYPE" content="text/html; charset=utf-8" />
+<script src="/js/jquery-2.1.1.min.js"></script>
+<script src="/js/jquery.form.js"></script>
+<script src="librivox_sound_check.js"></script>
+<script src="sound_form.js"></script>
+<link href="librivox_sound_check.css" rel="stylesheet">
+<title>sound_check for 1-Minute Test (May/05/2014)</title>
+</head>
+<body>
+<h2>sound_check for <a href="http://wiki.librivox.org/index.php/1-Minute_Test">
+1-Minute Test</a> (May/05/2013)</h2><p />
+<div class="top">
+</div>
+Here you can check the technical specs of your recording.<p />
+<blockquote>
+<b>Summary of tech specs</b><p />
+Channel: Mono<br />
+Sample rate: 44100 Hz<br />
+Sample format: 16 bit<br />
+Export format: MP3<br />
+Export bitrate: 128 kbps<br />
+<br />
+Volume: 89 dB<br />
+</blockquote>
+
+1) First upload your recording in tests folder at LibriVox.<p />
+
+	<blockquote>
+	Or you can use a existing mp3 file in tests folder at LibriVox.<br />
+	</blockquote>
+
+2) Enter your file name (Ex. test_ekzemplaro.mp3)  here & submit.<p />
+	<blockquote>
+	This program fetch data from &lt;https://librivox.org/uploads/tests/&gt;.<br />
+	</blockquote>
+<form id="myForm" action="sound_check.php" method="post"> 
+	file_mp3: <input type="text" name="file_mp3" /> 
+	<input type="submit" value="Submit" />
+</form>
+<button id="clear">Clear</button>
+
+<div class="contents">contents</div>
+<br />
+<div class="comment">comment</div>
+<hr />
+Cashed mp3 files.<br />
+<blockquote>
+As default cashed files are used. If mp3 file at LibriVox is newer, please delete cashed file before checking.<br />
+</blockquote>
+<blockquote>
+<button id="delete">Delete</button>
+<div class="list_file">
+list_file</div>
+<button id="delete">Delete</button>
+</blockquote>
+Please post your feed back to <a href="https://forum.librivox.org/viewtopic.php?f=24&t=41621">Online tech specs check of test recordings</a><br />
+<hr />
+This program uses the following package.<br />
+<blockquote>
+mp3gain<br />
+sox<br />
+libsox-fmt-mp3<br />
+</blockquote>
+<hr />
+<div id="outarea_aa">outarea_aa</div>
+<div id="outarea_bb">outarea_bb</div>
+<div id="outarea_cc">outarea_cc</div>
+<div id="outarea_dd">outarea_dd</div>
+<div id="outarea_ee">outarea_ee</div>
+<div id="outarea_ff">outarea_ff</div>
+<div id="outarea_gg">outarea_gg</div>
+<div id="outarea_hh">outarea_hh</div>
+<hr />
+May/05/2014 AM 08:15<p />
+</body>
+</html>
