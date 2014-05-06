@@ -3,7 +3,7 @@
 /*
 	sound_check.php
 
-					Nov/23/2012
+					May/07/2014
 
 	must be installed
 
@@ -48,7 +48,6 @@ function sound_spec_proc ($file_mp3)
 	$path = "sound_data/" . $file_mp3;
 
 	$result = sound_spec_proc_file ($path,$result);
-
 	$result = sound_spec_proc_gain ($path,$result);
 
 	return	$result;

@@ -1,29 +1,35 @@
 // -----------------------------------------------------------------------
 //	sound_form.js
 //
-//					Aug/23/2012
+//					May/07/2014
 //
 // -----------------------------------------------------------------------
 function sound_form_proc ()
 {
+	var vol_min_max = [-2.0,2.0];
+
 	jQuery('#myForm').ajaxForm(function(data_receive)
 		{ 
 		jQuery("#outarea_bb").html(data_receive);
 
 		var file_mp3 = jQuery('#myForm [name=file_mp3]').val ();
 
-		jQuery("#outarea_dd").text (file_mp3);
-
 		var data_in = jQuery.parseJSON (data_receive);
+
+		var str_out = "outarea_dd: " + file_mp3 + "<br />";
+		str_out += "db_change: " + data_in['db_change'] + "<br />";
+		jQuery("#outarea_dd").html (str_out);
+
 
 		var str_out = "";
 		var str_comment = "";
 
 		if ("mono" in data_in)
 			{
-			var hantei = results_hantei_proc (data_in);
+			var hantei = results_hantei_proc (data_in,vol_min_max);
 			str_out = table_gen_proc (data_in,hantei);
-			str_comment = gen_commnets_proc (data_in,hantei);
+			str_comment = gen_commnets_proc
+				(data_in,hantei,vol_min_max);
 			}
 		else
 			{
@@ -63,13 +69,13 @@ function gen_error_message_file (file_mp3)
 }
 
 // -----------------------------------------------------------------------
-function gen_commnets_proc (data_result,hantei)
+function gen_commnets_proc (data_result,hantei,vol_min_max)
 {
 	var str_message = "";
 	var str_tmp = "";
 
-	var volume_max = 2.0;
-	var volume_min = -2.0;
+//	var volume_max = 2.0;
+//	var volume_min = -2.0;
 
 	var flag_all = true;
 	for (var unit in hantei)
@@ -102,11 +108,11 @@ function gen_commnets_proc (data_result,hantei)
 			str_message += "Must be saved in Mono.<br />";
 			}
 
-		if (volume_max <= data_result.db_change)
+		if (vol_min_max[1] <= data_result.db_change)
 			{
 			str_message += "The volume need to be increased.<br />";
 			}
-		else if (data_result.db_change <= volume_min)
+		else if (data_result.db_change <= vol_min_max[0])
 			{
 			str_message += "The volume need to be lowered.<br />";
 			}
@@ -118,7 +124,7 @@ function gen_commnets_proc (data_result,hantei)
 
 // -----------------------------------------------------------------------
 // [6]:
-function results_hantei_proc (data_result)
+function results_hantei_proc (data_result,vol_min_max)
 {
 	var hantei = new Object ();
 	hantei.file_mp3 = false;
@@ -159,7 +165,8 @@ function results_hantei_proc (data_result)
 		hantei.mono = true;
 		}
 
-	if ((-3.0 < data_result.db_change ) && (data_result.db_change < 3.0))
+	if ((vol_min_max[0] <= data_result.db_change )
+		&& (data_result.db_change <= vol_min_max[1]))
 		{
 		hantei.db_change = true;
 		}
