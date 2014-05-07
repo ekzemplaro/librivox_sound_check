@@ -8,11 +8,18 @@ function sound_form_proc ()
 {
 	var vol_min_max = [-2.0,2.0];
 
-	jQuery('#myForm').ajaxForm(function(data_receive)
+	jQuery ("button.check").click (function ()
 		{ 
-		jQuery("#outarea_bb").html(data_receive);
+		var file_mp3 = jQuery('#file_name').val ();
+		var str_out = file_mp3 + "<br />";
 
-		var file_mp3 = jQuery('#myForm [name=file_mp3]').val ();
+		jQuery("#outarea_bb").html(str_out);
+
+		var url_post = "./sound_check.php";
+
+		jQuery.post (url_post,{file_mp3: file_mp3},
+			function (data_receive)
+			{
 
 		var data_in = jQuery.parseJSON (data_receive);
 
@@ -40,6 +47,7 @@ function sound_form_proc ()
 		jQuery(".comment").html (str_comment);
 
 		file_list_get_proc ();
+			}); 
 		}); 
 }
 
@@ -73,9 +81,6 @@ function gen_commnets_proc (data_result,hantei,vol_min_max)
 {
 	var str_message = "";
 	var str_tmp = "";
-
-//	var volume_max = 2.0;
-//	var volume_min = -2.0;
 
 	var flag_all = true;
 	for (var unit in hantei)
@@ -134,7 +139,6 @@ function results_hantei_proc (data_result,vol_min_max)
 	hantei.export_bitrate = false;
 	hantei.mpeg = false;
 	hantei.db_change = false;
-
 
 	hantei.file_mp3 = true;
 
@@ -214,7 +218,6 @@ function table_gen_proc (data_result,hantei)
 // [6-4]:
 function record_gen_proc (tag,data_single,hantei_single)
 {
-
 	var str_out = "<tr><td>" + tag + "</td>";
 	str_out += "<td>" + data_single + "</td>";
 
