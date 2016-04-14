@@ -3,15 +3,11 @@
 /*
 	sound_delete_files.php
 
-					May/05/2014
+					May/06/2014
 
 */
 // --------------------------------------------------------------------
-$path="/var/www/data_base/common/php_common";
-set_include_path (get_include_path() . PATH_SEPARATOR . $path);
-//
 include	"cgi_manipulate.php";
-// include ('list_files_exec.php');
 
 $arry_param = cgi_manipulate ();
 

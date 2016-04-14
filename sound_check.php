@@ -12,8 +12,8 @@
 		libsox-fmt-mp3
 */
 // --------------------------------------------------------------------
-$path="/var/www/data_base/common/php_common";
-set_include_path (get_include_path() . PATH_SEPARATOR . $path);
+// $path="/var/www/data_base/common/php_common";
+// set_include_path (get_include_path() . PATH_SEPARATOR . $path);
 
 // --------------------------------------------------------------------
 // $file_mp3 = "1_min_test_hollya.mp3";

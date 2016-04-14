@@ -3,13 +3,9 @@
 /*
 	file_mp3_list.php
 
-					Jun/29/2013
+					May/06/2013
 
 */
-// --------------------------------------------------------------------
-$path="/var/www/data_base/common/php_common";
-set_include_path (get_include_path() . PATH_SEPARATOR . $path);
-
 // --------------------------------------------------------------------
 $result = file_list_mp3_proc ();
 

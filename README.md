@@ -4,16 +4,20 @@ You can get information about LibriVox at <http://www.librivox.org>.
 
 1) Place the data at http server (Apache2 or Nginx).
 
-2) Place jquery-2.1.1.min.js at (server_root)/js
+2) Place jquery-2.2.3.min.js at (server_root)/js
 
 3) install
 	mp3gain
 	sox
 	libsox-fmt-mp3
 
+	for Arch Linux
+
+		libid3tag
+
 4) Access http://server_root/sound_check.html
 
-Oct/20/2014
+Apr/14/2016
 
 -----------------------------------------------------------------------
 
